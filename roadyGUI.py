@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\roady_gui.ui'
+# Form implementation generated from reading ui file '.\roadyGUI.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.0
 #
@@ -10,11 +10,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 from roady import Roady
 
+from tkinter import messagebox
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(550, 250)
+        MainWindow.resize(557, 454)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.departure_city_label = QtWidgets.QLabel(parent=self.centralwidget)
@@ -53,9 +55,15 @@ class Ui_MainWindow(object):
         self.add_return_radio_button = QtWidgets.QRadioButton(parent=self.centralwidget)
         self.add_return_radio_button.setGeometry(QtCore.QRect(170, 50, 89, 20))
         self.add_return_radio_button.setObjectName("add_return_radio_button")
+        self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(180, 210, 191, 191))
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap(".\\DSC0101.jpg"))
+        self.label_3.setScaledContents(True)
+        self.label_3.setObjectName("label_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 550, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 557, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -88,10 +96,9 @@ class Ui_MainWindow(object):
 
         price = roady.calculate_price_per_person()
         if self.add_return_radio_button.isEnabled():
-            print(price * 2)
+            messagebox.showinfo(f"Calculation result", f"the price per person is {price * 2}")
         else:
-            print(price)
-
+            messagebox.showinfo("Calculation Result", f"The price per person is: {price}")
 
 
 
